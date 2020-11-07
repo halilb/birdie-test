@@ -1,22 +1,18 @@
-import * as React from 'react';
-import styled, { createGlobalStyle } from 'styled-components';
-import { RootState } from '@App/store/reducers';
-import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
+import * as React from "react";
+import styled, { createGlobalStyle } from "styled-components";
+import { RootState } from "@App/store/reducers";
+import { connect } from "react-redux";
+import { Dispatch } from "redux";
 
-import Title from '@App/components/Title';
-import Logo from '@App/components/Logo';
-import SubTitle from '@App/components/SubTitle';
+import Title from "@App/components/Title";
+import Logo from "@App/components/Logo";
+import SubTitle from "@App/components/SubTitle";
 
-const LogoUrl = require('../../assets/images/logo-birdie.svg');
+const LogoUrl = require("../../assets/images/logo-birdie.svg");
 
-interface AppProps {
+interface AppProps {}
 
-}
-
-interface AppState {
-
-}
+interface AppState {}
 
 const GlobalStyle = createGlobalStyle`
   body {
