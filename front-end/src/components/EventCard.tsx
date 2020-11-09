@@ -4,6 +4,7 @@ import EventIcon from "@App/components/EventIcon";
 import EventTitle from "@App/components/EventTitle";
 import { Event } from "@App/models/Event";
 import EventData from "./EventData";
+import * as dayjs from "dayjs";
 
 type Props = {
   event: Event;
@@ -36,19 +37,13 @@ const DateText = styled.div`
   font-size: 10px;
 `;
 
-const intlFormat = new Intl.DateTimeFormat("default", {
-  hour: "numeric",
-  minute: "numeric",
-  second: "numeric",
-});
-
 const EventCard: React.FC<Props> = (props) => {
   const { event } = props;
   const { event_type, data, timestamp } = event;
 
   return (
     <Container>
-      <DateText>{intlFormat.format(new Date(timestamp))}</DateText>
+      <DateText>{dayjs(timestamp).format("h:mm A")}</DateText>
       <Header>
         <EventIcon type={event_type} />
         <EventTitle type={event_type} />

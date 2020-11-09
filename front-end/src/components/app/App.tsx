@@ -3,6 +3,7 @@ import styled, { createGlobalStyle } from "styled-components";
 
 import Logo from "@App/components/Logo";
 import Timeline from "@App/components/Timeline";
+import DatePicker from "@App/components/DatePicker";
 
 const LogoUrl = require("../../assets/images/logo-birdie.svg");
 
@@ -27,7 +28,7 @@ const AppContainer = styled.div`
 
 const Content = styled.div`
   width: 320px;
-  padding: 36px;
+  padding-bottom: 36px;
 `;
 
 const data = [
@@ -186,6 +187,7 @@ const App: React.FC = () => {
       <GlobalStyle />
       <AppContainer>
         <Logo src={LogoUrl} />
+        <DatePicker onSelect={() => console.log("selected")} />
         <Content>
           {/* @ts-ignore */}
           <Timeline events={data} />
