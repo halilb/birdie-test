@@ -1,5 +1,5 @@
-import { EventType } from "@App/models/Event";
-import * as React from "react";
+import { EventType } from "@App/store/orm/event/model";
+import React from "react";
 import styled from "styled-components";
 
 const water = require("./water.svg");

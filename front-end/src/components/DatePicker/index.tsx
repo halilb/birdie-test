@@ -1,13 +1,15 @@
-import * as React from "react";
+import React, { useState } from "react";
 import SelectedDate from "./SelectedDate";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import Switch from "../Switch";
 import styled from "styled-components";
-import * as dayjs from "dayjs";
+import dayjs from "dayjs";
 
 type Props = {
-  onSelect: (date: Date) => void;
+  date: Date;
+  today: Date;
+  setDate: (date: Date) => void;
 };
 
 const Container = styled.div`
@@ -16,21 +18,21 @@ const Container = styled.div`
   align-items: center;
 `;
 
-const today = dayjs();
-
 const DatePicker: React.FC<Props> = (props) => {
-  const [isVisible, setIsVisible] = React.useState<boolean>(false);
-  const [value, setValue] = React.useState<Date>(new Date());
+  const { date, today, setDate } = props;
+  const [isVisible, setIsVisible] = useState<boolean>(false);
 
   return (
     <Container>
-      <SelectedDate date={value} onSelected={() => setIsVisible(!isVisible)} />
+      <SelectedDate date={date} onSelected={() => setIsVisible(!isVisible)} />
       <Switch condition={isVisible}>
         <Calendar
-          value={value}
-          tileDisabled={({ date }) => today.isBefore(date)}
-          onChange={(date: Date) => {
-            setValue(date);
+          value={date}
+          tileDisabled={({ date: dateToCheck }) => {
+            return dayjs(today).isBefore(dateToCheck);
+          }}
+          onChange={(newDate: Date) => {
+            setDate(newDate);
             setIsVisible(false);
           }}
         />

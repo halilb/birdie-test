@@ -1,18 +1,32 @@
-import { createStore, GenericStoreEnhancer } from "redux";
-import createBrowserHistory from "history/createBrowserHistory";
-import { rootReducer } from "@App/store/reducers";
+import {
+  configureStore,
+  EnhancedStore,
+  getDefaultMiddleware,
+} from "@reduxjs/toolkit";
+import { Middleware } from "redux";
+import { createReducer, OrmState } from "redux-orm";
+import createAxiosMiddleware from "./middleware/axios";
+import orm, { Schema } from "./orm";
 
-declare global {
-  interface Window {
-    __REDUX_DEVTOOLS_EXTENSION__: () => undefined;
-    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: (
-      arg: GenericStoreEnhancer
-    ) => undefined;
-  }
+export type RootState = {
+  orm: OrmState<Schema>;
+};
+
+export type Store = EnhancedStore<RootState>;
+
+function getMiddleware(): Middleware[] {
+  return [...getDefaultMiddleware(), createAxiosMiddleware()];
 }
 
-export const history = createBrowserHistory();
+export function buildStore(): Store {
+  const store = configureStore({
+    reducer: {
+      // @ts-ignore
+      orm: createReducer(orm),
+    },
+    middleware: getMiddleware(),
+  });
 
-const store = createStore(rootReducer);
-
-export default store;
+  // @ts-ignore
+  return store;
+}

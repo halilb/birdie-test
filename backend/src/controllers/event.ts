@@ -27,9 +27,14 @@ eventController.get("/events", async function(req: Request, res: Response) {
         ),
       },
     ],
+    order: {
+      timestamp: "DESC",
+    },
   });
   const filtered = events.filter(({ event_type }) =>
     eventKeys.includes(event_type)
   );
-  res.json(filtered);
+  res.json({
+    events: filtered,
+  });
 });

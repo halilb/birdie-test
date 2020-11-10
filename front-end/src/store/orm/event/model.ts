@@ -1,3 +1,6 @@
+import { Model, ModelType } from "redux-orm";
+import { GET_EVENTS_SUCCESS, RootAction } from "./actions";
+
 export enum EventType {
   FLUID_INTAKE_OBSERVATION = "fluid_intake_observation",
   TASK_COMPLETED = "task_completed",
@@ -30,9 +33,26 @@ export interface EventData {
   visit_count?: string;
 }
 
-export interface Event {
+export interface Fields {
   id: string;
   event_type: EventType;
   data: EventData;
   timestamp: string;
+}
+
+export default class Event extends Model<typeof Event, Fields> {
+  static modelName = "Event";
+
+  static reducer(action: RootAction, EventModel: ModelType<Event>): void {
+    switch (action.type) {
+      case GET_EVENTS_SUCCESS: {
+        action.payload.data.events.forEach((event) => {
+          EventModel.upsert(event);
+        });
+        break;
+      }
+      default:
+        break;
+    }
+  }
 }

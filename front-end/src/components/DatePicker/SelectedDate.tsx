@@ -1,6 +1,6 @@
-import * as React from "react";
+import React from "react";
 import styled from "styled-components";
-import * as dayjs from "dayjs";
+import dayjs from "dayjs";
 
 type Props = {
   date: Date;

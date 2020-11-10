@@ -2,9 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@App/*": [
-        "src/*"
-      ]
+      "@App/*": ["src/*"]
     },
     "outDir": "build/dist",
     "module": "esnext",
@@ -13,6 +11,7 @@
     "lib": ["es2017", "dom"],
     "sourceMap": true,
     "allowJs": true,
+    "allowSyntheticDefaultImports": true,
     "jsx": "react",
     "moduleResolution": "node",
     "rootDir": "src",

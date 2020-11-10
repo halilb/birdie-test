@@ -1,10 +1,10 @@
-import * as React from "react";
+import React from "react";
 import styled from "styled-components";
 import EventIcon from "@App/components/EventIcon";
 import EventTitle from "@App/components/EventTitle";
-import { Event } from "@App/models/Event";
+import { Fields as Event } from "@App/store/orm/event/model";
 import EventData from "./EventData";
-import * as dayjs from "dayjs";
+import dayjs from "dayjs";
 
 type Props = {
   event: Event;

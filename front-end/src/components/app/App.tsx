@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 
 import Logo from "@App/components/Logo";
@@ -31,6 +31,7 @@ const Content = styled.div`
   padding-bottom: 36px;
 `;
 
+/*
 const data = [
   {
     id: "00114a9f-00dc-4f39-a6ac-af1b7e0543e7",
@@ -180,21 +181,22 @@ const data = [
     data: { note: "", visit_count: 3 },
   },
 ];
+*/
+
+// Database records end on this day
+const today = new Date("2019-05-12");
 
 const App: React.FC = () => {
+  const [date, setDate] = useState<Date>(today);
+
   return (
     <>
       <GlobalStyle />
       <AppContainer>
         <Logo src={LogoUrl} />
-        <DatePicker
-          onSelect={() => {
-            // console.log("selected")}
-          }}
-        />
+        <DatePicker date={date} today={today} setDate={setDate} />
         <Content>
-          {/* @ts-ignore */}
-          <Timeline events={data} />
+          <Timeline date={date} />
         </Content>
       </AppContainer>
     </>
