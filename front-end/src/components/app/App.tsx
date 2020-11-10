@@ -187,7 +187,11 @@ const App: React.FC = () => {
       <GlobalStyle />
       <AppContainer>
         <Logo src={LogoUrl} />
-        <DatePicker onSelect={() => console.log("selected")} />
+        <DatePicker
+          onSelect={() => {
+            // console.log("selected")}
+          }}
+        />
         <Content>
           {/* @ts-ignore */}
           <Timeline events={data} />
