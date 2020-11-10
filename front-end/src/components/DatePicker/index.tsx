@@ -31,8 +31,10 @@ const DatePicker: React.FC<Props> = (props) => {
           tileDisabled={({ date: dateToCheck }) => {
             return dayjs(today).isBefore(dateToCheck);
           }}
-          onChange={(newDate: Date) => {
-            setDate(newDate);
+          onChange={(newDate) => {
+            if (newDate instanceof Date) {
+              setDate(newDate);
+            }
             setIsVisible(false);
           }}
         />

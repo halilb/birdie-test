@@ -1,4 +1,4 @@
-import { EventData as EventDataT } from "@App/store/orm/event/model";
+import { EventData as EventDataT } from "store/orm/event/model";
 import React from "react";
 import styled from "styled-components";
 import Switch from "./Switch";

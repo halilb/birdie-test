@@ -1,8 +1,8 @@
 import { createSelector } from "redux-orm";
-import orm from "@App/store/orm";
-import { ManySelector } from "@App/types/redux-orm";
+import orm from "store/orm";
+import { ManySelector } from "types/redux-orm";
 import { Fields } from "./model";
-import { RootState } from "@App/store";
+import { RootState } from "store";
 import dayjs from "dayjs";
 
 // @ts-ignore

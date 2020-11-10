@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import registerServiceWorker from "./registerServiceWorker";
-import { buildStore } from "@App/store";
+import { buildStore } from "store";
 import { Provider } from "react-redux";
-import App from "@App/components/app/App";
+import App from "components/app/App";
 
 const store = buildStore();
 

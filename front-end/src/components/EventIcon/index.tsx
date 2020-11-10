@@ -1,18 +1,18 @@
-import { EventType } from "@App/store/orm/event/model";
+import { EventType } from "store/orm/event/model";
 import React from "react";
 import styled from "styled-components";
 
-const water = require("./water.svg");
-const completedTask = require("./completed-task.svg");
-const body = require("./body.svg");
-const mood = require("./mood.svg");
-const medicine = require("./medicine.svg");
-const siren = require("./siren.svg");
-const observation = require("./observation.svg");
-const food = require("./food.svg");
-const concern = require("./concern.svg");
-const catheter = require("./catheter.svg");
-const toilet = require("./toilet.svg");
+import water from "./water.svg";
+import completedTask from "./completed-task.svg";
+import body from "./body.svg";
+import mood from "./mood.svg";
+import medicine from "./medicine.svg";
+import siren from "./siren.svg";
+import observation from "./observation.svg";
+import food from "./food.svg";
+import concern from "./concern.svg";
+import catheter from "./catheter.svg";
+import toilet from "./toilet.svg";
 
 type Props = {
   type: EventType;

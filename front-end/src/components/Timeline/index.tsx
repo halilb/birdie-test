@@ -1,11 +1,11 @@
-import { getEvents } from "@App/store/orm/event/actions";
+import { getEvents } from "store/orm/event/actions";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Spinner from "@App/components/Spinner";
-import Switch from "@App/components/Switch";
-import EventCard from "@App/components/EventCard";
-import { selectEventsByDate } from "@App/store/orm/event/selectors";
-import { RootState } from "@App/store";
+import Spinner from "components/Spinner";
+import Switch from "components/Switch";
+import EventCard from "components/EventCard";
+import { selectEventsByDate } from "store/orm/event/selectors";
+import { RootState } from "store";
 
 export type Props = {
   date: Date;

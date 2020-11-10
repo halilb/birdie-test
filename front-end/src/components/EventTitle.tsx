@@ -1,4 +1,4 @@
-import { EventType } from "@App/store/orm/event/model";
+import { EventType } from "store/orm/event/model";
 import React from "react";
 import styled from "styled-components";
 

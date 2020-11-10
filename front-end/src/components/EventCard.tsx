@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import EventIcon from "@App/components/EventIcon";
-import EventTitle from "@App/components/EventTitle";
-import { Fields as Event } from "@App/store/orm/event/model";
+import EventIcon from "components/EventIcon";
+import EventTitle from "components/EventTitle";
+import { Fields as Event } from "store/orm/event/model";
 import EventData from "./EventData";
 import dayjs from "dayjs";
 
