@@ -18,11 +18,13 @@ function getMiddleware(): Middleware[] {
   return [...getDefaultMiddleware(), createAxiosMiddleware()];
 }
 
-export function buildStore(): Store {
+export function buildStore(preloadedState = {}): Store {
   const store = configureStore({
     reducer: {
       // @ts-ignore
       orm: createReducer(orm),
+      // @ts-ignore
+      preloadedState,
     },
     middleware: getMiddleware(),
   });

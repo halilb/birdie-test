@@ -24,7 +24,9 @@ const Timeline: React.FC<Props> = (props) => {
     async function fetchEvents() {
       setIsLoading(true);
       // TODO: get recipient id from session
-      await dispatch(getEvents("ad3512a6-91b1-4d7d-a005-6f8764dd0111", date));
+      const res = await dispatch(
+        getEvents("ad3512a6-91b1-4d7d-a005-6f8764dd0111", date)
+      );
       setIsLoading(false);
     }
 
@@ -34,9 +36,11 @@ const Timeline: React.FC<Props> = (props) => {
 
   return (
     <Switch condition={!isLoading} fallback={<Spinner />}>
-      {events.map((event) => (
-        <EventCard key={event.id} event={event} />
-      ))}
+      <Switch condition={events.length > 0} fallback={<p>No events found</p>}>
+        {events.map((event) => (
+          <EventCard key={event.id} event={event} />
+        ))}
+      </Switch>
     </Switch>
   );
 };

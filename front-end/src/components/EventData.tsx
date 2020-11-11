@@ -49,7 +49,7 @@ const EventData: React.FC<Props> = (props) => {
       <Item label="Mood" value={data.mood} />
       <Item label="Reason" value={data.medication_failure_reason} />
       <Item label="Task Note" value={data.task_schedule_note} />
-      <Item label="Task descrption" value={data.task_definition_description} />
+      <Item label="Task description" value={data.task_definition_description} />
       <Item label="Visit Count" value={data.visit_count} />
     </Container>
   );

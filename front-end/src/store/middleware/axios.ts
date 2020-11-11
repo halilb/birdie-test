@@ -8,6 +8,10 @@ const client = axios.create({
   responseType: "json",
 });
 
+// HACK: write the client to the window to be able to mock it in tests
+// @ts-ignore
+window.client = client;
+
 export default function createAxiosMiddleware(): Middleware {
   return axiosMiddleware(client, {
     successSuffix: "_SUCCESS",
